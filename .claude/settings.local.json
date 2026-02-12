@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git fetch:*)",
+      "Bash(.specify/scripts/bash/create-new-feature.sh:*)",
+      "Bash(.specify/scripts/bash/setup-plan.sh:*)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:sh.rustup.rs)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:gist.github.com)",
+      "Bash(brew:*)",
+      "Bash(col:*)",
+      "WebFetch(domain:docs.brew.sh)",
+      "Bash(.specify/scripts/bash/update-agent-context.sh:*)",
+      "Bash(.specify/scripts/bash/check-prerequisites.sh:*)",
+      "Bash(if [ -d \"/Users/timgentry/dotfiles/specs/001-dotfiles-setup/checklists\" ])",
+      "Bash(then find /Users/timgentry/dotfiles/specs/001-dotfiles-setup/checklists -type f -name \"*.md\")",
+      "Bash(else echo \"No checklists directory\")",
+      "Bash(fi)",
+      "Bash(chmod:*)"
+    ]
+  }
+}
