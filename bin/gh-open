@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+# gh-open - Open current git branch in browser on GitHub
+# Demonstrates that ~/bin scripts are in PATH after dotfiles setup
+
+set -euo pipefail
+
+# Check if we're in a git repository
+if ! git rev-parse --git-dir &>/dev/null; then
+    echo "Error: Not a git repository" >&2
+    exit 1
+fi
+
+# Get remote URL
+remote_url=$(git remote -v | grep -m 1 "origin.*fetch" | awk '{print $2}')
+
+if [[ -z "$remote_url" ]]; then
+    echo "Error: No origin remote found" >&2
+    exit 2
+fi
+
+# Convert git@github.com:user/repo.git -> https://github.com/user/repo
+if [[ "$remote_url" =~ ^git@github\.com:(.+)\.git$ ]]; then
+    remote_url="https://github.com/${BASH_REMATCH[1]}"
+elif [[ "$remote_url" =~ ^https://github\.com/(.+)\.git$ ]]; then
+    remote_url="https://github.com/${BASH_REMATCH[1]}"
+fi
+
+# Get current branch
+current_branch=$(git branch --show-current)
+
+if [[ -z "$current_branch" ]]; then
+    echo "Error: Could not determine current branch" >&2
+    exit 3
+fi
+
+# Construct branch URL
+branch_url="${remote_url}/tree/${current_branch}"
+
+# Open in browser
+if command -v open &>/dev/null; then
+    # macOS
+    open "$branch_url"
+elif command -v xdg-open &>/dev/null; then
+    # Linux
+    xdg-open "$branch_url"
+else
+    # No browser command available, just print URL
+    echo "$branch_url"
+fi

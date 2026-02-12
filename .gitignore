@@ -1,0 +1,30 @@
+# Claude Code
+.claude/commands
+.claude/settings.local.json
+
+# macOS
+.DS_Store
+Thumbs.db
+
+# Shell scripts
+*.swp
+*.swo
+*~
+.*.swp
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+setup.log
+
+# State files
+.dotfiles_state
+
+# Temporary files
+*.tmp
+*.bak
+*.backup

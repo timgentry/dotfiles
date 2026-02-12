@@ -1,0 +1,39 @@
+# Git global configuration
+# Managed by dotfiles - edit at ~/.dotfiles/config/git/.gitconfig
+
+[core]
+    editor = code --wait
+    autocrlf = false
+    # Treat spaces before tabs and all kinds of trailing whitespace as an error
+    whitespace = space-before-tab,-indent-with-non-tab,trailing-space
+
+[init]
+    defaultBranch = main
+
+[pull]
+    rebase = false
+
+[push]
+    default = simple
+    followTags = true
+
+[color]
+    ui = auto
+
+[alias]
+    st = status
+    co = checkout
+    br = branch
+    ci = commit
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+[diff]
+    # Detect copies as well as renames
+    renames = copies
+
+[help]
+    # Automatically correct and execute mistyped commands
+    autocorrect = 1
+
+# User-specific settings (name, email) below
+# These should be set locally or via includes

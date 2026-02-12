@@ -1,0 +1,7 @@
+# Gem global configuration
+# Managed by dotfiles - edit at ~/.dotfiles/config/gem/.gemrc
+
+# Don't generate local documentation for installed gems
+gem: --no-document
+install: --no-document
+update: --no-document

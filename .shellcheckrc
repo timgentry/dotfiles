@@ -1,0 +1,12 @@
+# ShellCheck configuration for dotfiles project
+# See: https://github.com/koalaman/shellcheck/wiki/Directive
+
+# Disable warnings about following sourced files
+disable=SC1090,SC1091
+
+# Allow unused variables if they start with underscore
+# (Following common convention for intentionally unused variables)
+disable=SC2034
+
+# Enable all optional checks
+enable=all
